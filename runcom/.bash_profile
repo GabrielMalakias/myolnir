@@ -6,3 +6,4 @@ if [ -n "$DOTFILE_HOME" ]; then
     [ -f "$DOTFILE" ] && source "$DOTFILE"
   done
 fi
+

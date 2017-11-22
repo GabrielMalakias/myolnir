@@ -2,8 +2,7 @@
 
 ln -s ./system/.vimrc ~/.vimrc
 ln -s ./runcom/.bash_profile ~/.bash_profile
+ln -s ./runcom/.bashrc ~/.bashrc
 ln -s ./git/.gitconfig ~/.git/gitconfig
 ln -s ./system/.alias ~/.bash_aliases
-
-
 
