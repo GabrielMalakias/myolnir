@@ -43,6 +43,9 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+map <C-v> <ESC>"+pa
+map <C-c> "+y
+map <C-d> "+d
 
 map <Esc><Esc> :w<CR>
 
@@ -54,7 +57,6 @@ endfunc
 autocmd BufWrite * :call DeleteTrailingWS()
 
 let g:netrw_banner=0
-let g:netrw_browse_split=1
 let g:netrw_winsize=30
 
 augroup ProjectDrawer
@@ -71,3 +73,5 @@ let g:ag_working_path_mode="r"
 
 set rtp+=~/.fzf
 nnoremap <C-p> :Files<CR>
+set mouse=a
+set clipboard=unnamed
