@@ -1,14 +1,9 @@
-" Vundle setup
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-"  the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
@@ -44,22 +39,8 @@ Plugin 'jpo/vim-railscasts-theme'
 
 call vundle#end()
 
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-" "filetype plugin on
-" "
-" " Brief help
-" " :PluginList       - lists configured plugins
-" " :PluginInstall    - installs plugins; append `!` to update or just
-" :PluginUpdate
-" " :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" " :PluginClean      - confirms removal of unused plugins; append `!` to
-" auto-approve removal
-" "
-" " see :h vundle for more details or wiki for FAQ
-" " Put your non-Plugin stuff after this line
+filetype plugin indent on
 
-" Some vim improvements
 set showcmd     "show incomplete cmds down the bottom
 set showmode    "show current mode down the bottom
 set incsearch   "find the next match as we type the search
@@ -79,22 +60,25 @@ set modifiable
 set mouse=a
 set clipboard=unnamed
 
-"key mapping for window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+map <C-v> <ESC>"+pa
+map <C-c> "+y
+map <C-d> "+d
 
-"save pressing Esc twice
 map <Esc><Esc> :w<CR>
 
-" Delete trailing white space on save
 func! DeleteTrailingWS()
   exe "normal mz"
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
 autocmd BufWrite * :call DeleteTrailingWS()
+
+let g:netrw_banner=0
+let g:netrw_winsize=30
 
 augroup ProjectDrawer
   autocmd!
@@ -130,3 +114,9 @@ let g:fzf_files_options =
 
 set nobackup
 set nowritebackup
+let g:ag_working_path_mode="r"
+
+set rtp+=~/.fzf
+nnoremap <C-p> :Files<CR>
+set mouse=a
+set clipboard=unnamed
