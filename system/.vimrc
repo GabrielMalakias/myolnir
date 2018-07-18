@@ -2,7 +2,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-set the runtime path to include Vundle and initialize
+"  the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
@@ -28,12 +28,19 @@ Plugin 'VundleVim/Vundle.vim'
 " " different version somewhere else.
 " " Plugin 'ascenator/L9', {'name': 'newL9'}
 "
+Plugin 'elmcast/elm-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'godlygeek/tabular.git'
 Bundle 'vim-ruby/vim-ruby'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-airline/vim-airline'
-lugin 'elixir-editors/vim-elixir'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'elixir-editors/vim-elixir'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
+Plugin 'rking/ag.vim'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'jpo/vim-railscasts-theme'
 
 call vundle#end()
 
@@ -69,6 +76,8 @@ set nobackup
 set number      "show line number
 set cursorline  "highlight current line
 set modifiable
+set mouse=a
+set clipboard=unnamed
 
 "key mapping for window navigation
 map <C-h> <C-w>h
@@ -87,21 +96,37 @@ func! DeleteTrailingWS()
 endfunc
 autocmd BufWrite * :call DeleteTrailingWS()
 
-" Setup some netrw options
-let g:netrw_liststyle=3
-let g:netrw_banner=0
-let g:netrw_browse_split=1
-let g:netrw_winsize=30
-
 augroup ProjectDrawer
   autocmd!
-  autocmd VimEnter * :Vexplore
 augroup END
 
 " Some visual improvements
-colorscheme lucius
+colorscheme railscasts
 set background=dark
-let g:airline_theme='sol'
+let g:airline_theme='ubaryd'
 let g:gitgutter_max_signs = 950
 
+"set runtimepath^=~/.vim/bundle/ctrlp.vim
 
+set t_Co=256
+syntax on
+
+" Setup some netrw options
+let g:netrw_banner = 0
+let g:netrw_liststyle=0         " thin (change to 3 for tree)
+let g:netrw_altv=1              " open files on right
+let g:netrw_preview=1           " open previews vertically
+map <C-E> :Lexplore<CR>
+map <C-B> :Buffers<CR>
+
+" Setup some ag patterns
+let g:ag_working_path_mode="r"
+
+nnoremap <C-p> :Files<CR>
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let g:fzf_layout = { 'left': '100%' }
+let g:fzf_files_options =
+  \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
+
+set nobackup
+set nowritebackup

@@ -48,5 +48,8 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/Users/gabrielsouza/.rbenv/shims:/Users/gabrielsouza/.rbenv/bin:/Users/gabrielsouza/.rbenv/shims:/usr/local/share/python:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/gabrielsouza/.rvm/bin:/Users/gabrielsouza/bin:/usr/local/go/bin"
+eval "$(rbenv init -)"
+
+export PATH="/Users/gabriel/.rbenv/shims:/Users/gabrielsouza/.rbenv/bin:/Users/gabrielsouza/.rbenv/shims:/usr/local/share/python:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/gabrielsouza/.rvm/bin:/Users/gabrielsouza/bin:/usr/local/go/bin:/usr/local/opt/python/libexec/bin:$PATH"
+
 
