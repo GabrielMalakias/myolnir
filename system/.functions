@@ -1,7 +1,0 @@
-function is_installed() {
-  type "$1" &> /dev/null
-}
-
-function clean_docker_untagged() {
-  docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
-}
