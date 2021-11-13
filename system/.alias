@@ -1,7 +1,0 @@
-# This file should set some aliases to turn my life easier
-
-alias gc="git commit -am $1"
-alias gcv="git commit --verbose"
-alias gr="git rebase -i origin $1"
-alias cleanvim="find . -type f \( -iname \*.swp -o -iname \*.swo \) -ls -delete"
-
