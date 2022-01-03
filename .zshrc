@@ -8,7 +8,7 @@ export ZSH=/Users/radovanovicm/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="risto"
-ZSH_THEME="dracula"
+ZSH_THEME="simple"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -69,6 +69,7 @@ export GOPATH=~/go/
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR='mvim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -86,32 +87,5 @@ export GOPATH=~/go/
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # alias envsubst='/usr/local/Cellar/gettext/0.19.8.1/bin/envsubst'
 
-# PYTHON
-export WORKON_HOME=$HOME/.envs
-source /usr/local/bin/virtualenvwrapper.sh
-
-# KUBERNETS
-alias k8s-prod-a='kubectl config use-context prod-eu-central-1a.cloud.shore.com'
-alias k8s-prod-b='kubectl config use-context prod-eu-central-1b.cloud.shore.com'
-alias k8s-staging-c='kubectl config use-context staging-eu-central-1c.cloud.shore.com'
-alias k8s-current='kubectl config current-context'
-alias dokcer='docker'
-alias k8s-shore-describe='_kdes(){kubectl describe pod $1 -n shore};_kdes'
-alias k8s-localsearch-describe='_kdes(){kubectl describe pod $1 -n localsearch};_kdes'
-alias k8s-shore-get='kubectl get pods -n shore'
-alias k8s-localsearch-get='kubectl get pods -n localsearch'
-alias k8s-shore-shell-exec='_ksh(){kubectl exec -ti "$1" -n shore sh}; _ksh'
-alias k8s-localsearch-shell-exec='_ksh(){kubectl exec -ti "$1" -n localsearch sh}; _ksh'
-alias k8s-pod='_ksh(){for cluster in k8s-prod-{a,b} k8s-staging-c; do echo "*****************"; echo $cluster ; echo "*****************"; kubectl get pods --all-namespaces | grep -i $1 ; done}; _ksh'
-
-alias k8s-config='_config(){run_command.sh -u $(echo $USERNAME) -s $1 -e $2};_config'
-alias k8s-run='_run(){
-args=""
-for i in "${@:3}"
-do
-    args="$args $i"
-done
-run_command.sh -u $(echo $USERNAME) -s $1 -e $2 -c $args
-};_run'
 
 eval "$(rbenv init -)"

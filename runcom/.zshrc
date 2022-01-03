@@ -1,6 +1,6 @@
 export ZSH=/Users/g.malaquias/.oh-my-zsh
 
-ZSH_THEME="dracula"
+ZSH_THEME="simple"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
